@@ -12,6 +12,14 @@ def pull_information_from_File(file_):
 
 def filtering(state_year, information, enter_year):
     
+
+    index_year = 0
+    if len(state_year[1:]) >= 1:
+        
+        for i in state_year:
+            if i == enter_year:
+                index_year =  state_year.index(i)
+                print(index_year)
     return 0
 
 

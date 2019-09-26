@@ -1,12 +1,12 @@
 
 
-def pull_information_from_File():
+def pull_information_from_File(file_):
     
     header = []
     global_information = []
 
     for first_line in file_:
-    header.append(first_line.split())
+        header.append(first_line.split())
     print(header)
     
     

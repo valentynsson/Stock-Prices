@@ -7,8 +7,11 @@ def pull_information_from_File(file_):
 
     for first_line in file_:
         global_information.append(first_line.split())
-    print(global_information)
     
+    header.append(global_information[0])
+    
+    global_information.pop(0)
+    print(global_information[0])
     
 
 

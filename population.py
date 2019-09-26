@@ -6,12 +6,10 @@ def pull_information_from_File(file_):
     global_information = []
 
     for first_line in file_:
-        header.append(first_line.split())
+        global_information.append(first_line.split())
     print(header)
     
     
-
-
 
 
 file_ = open("population.txt", "r")

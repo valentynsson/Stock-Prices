@@ -1,5 +1,4 @@
 
-
 def pull_information_from_File(file_):
     
     header = []
@@ -15,14 +14,28 @@ def pull_information_from_File(file_):
     
 
 
-file_ = open("population.txt", "r")
-file_information = pull_information_from_File(file_)
-print(file_information[0])
+def filtering(state_year, information, enter_year):
+    
+    
+    return 0
 
 
 
 
+def main():
+    file_ = open("population.txt", "r")
+    file_information = pull_information_from_File(file_)
 
+    enter_year = input("Enter Year: ")
+    state_year = filtering(file_information[0], file_information[1:], enter_year)
+
+    print(file_information[0])
+    print(file_information[1:])
+
+
+
+
+main()
 
 
 

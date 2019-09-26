@@ -1,21 +1,16 @@
 
 def pull_information_from_File(file_):
     
-    header = []
     global_information = []
 
     for first_line in file_:
         global_information.append(first_line.split())
     
-    header.append(global_information[0])
-    global_information.pop(0)
-    
-    return header, global_information
+    return global_information
     
 
 
 def filtering(state_year, information, enter_year):
-    
     
     return 0
 
@@ -27,33 +22,11 @@ def main():
     file_information = pull_information_from_File(file_)
 
     enter_year = input("Enter Year: ")
+    print(file_information[0])
     state_year = filtering(file_information[0], file_information[1:], enter_year)
 
-    print(file_information[0])
-    print(file_information[1:])
-
-
+   
 
 
 main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#
-# enterName = input("Please enter the year: ")
-
 

@@ -88,9 +88,8 @@ def filtering(information, enter_year):
             return min_tuple, max_tuple
     
     else:
-        print("Invalid year!")
         return 0
-        
+
 
 def main():
     

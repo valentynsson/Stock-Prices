@@ -8,23 +8,22 @@ def check_if_number(value):
         return False        
     
 def pull_information_from_File(file_):
-    
-    global_information = []
 
+    global_information = []
     for first_line in file_:
         global_information.append(first_line.split())
-    
-    for second_line in global_information:  
-        check_num = check_if_number(second_line[1])
         
-        if check_num == True:
-            continue
-        else:
-            second_line[0] = second_line[0] + " " + second_line[1]
-            second_line.remove(second_line[1])
+        for second_line in global_information:  
+            check_num = check_if_number(second_line[1])
             
+            if check_num == True:
+                continue
+            else:
+                second_line[0] = second_line[0] + " " + second_line[1]
+                second_line.remove(second_line[1])
+                
     return global_information
-
+    
 def searching_in_list(index_, list_):
     
     special_year = []
@@ -55,7 +54,6 @@ def filtering(information, enter_year):
         get_first_line.append(first_list)
     
         break
-
     
     if len(get_first_line[0]) >= 2:
         try: 
@@ -78,18 +76,23 @@ def filtering(information, enter_year):
             if final_result[1][1] > final_result[0][1]:
                 max_tuple = (final_result[1][1], final_result[1][0])
             
-
         except:
             print("The Year do not exist")
         return min_tuple, max_tuple
 
 def main():
-    file_ = open("population.txt", "r")
-    file_information = pull_information_from_File(file_)
+    
+    try:
+        enter_file = input("Enter filename: ")
+        file_ = open(enter_file, "r")
+        file_information = pull_information_from_File(file_)
 
-    enter_year = input("Enter Year: ")
-    state_year = filtering(file_information, enter_year)
-    print("Minimum: ", state_year[0])
-    print("Maximum: ", state_year[1])
+        enter_year = input("Enter Year: ")
+        state_year = filtering(file_information, enter_year)
+        print("Minimum: ", state_year[0])
+        print("Maximum: ", state_year[1])
 
+    except:
+        print("Filename {} not found!".format(enter_file))
+        
 main()

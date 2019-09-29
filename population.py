@@ -93,7 +93,7 @@ def filtering(information, enter_year):
 
 def main():
     
-  #  try:
+    try:
         enter_file = input("Enter filename: ")
         file_ = open(enter_file, "r")
         file_information = pull_information_from_File(file_)
@@ -104,7 +104,7 @@ def main():
         print("Minimum: ", state_year[0])
         print("Maximum: ", state_year[1])
 
- #   except:
-#        print("Filename {} not found!".format(enter_file))
+    except:
+        print("Filename {} not found!".format(enter_file))
         
 main()

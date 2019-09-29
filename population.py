@@ -1,4 +1,13 @@
 
+def check_if_number(value):
+    try: 
+        value = int(value)
+        return True
+
+    except:
+        return False        
+    
+
 def pull_information_from_File(file_):
     
     global_information = []
@@ -6,34 +15,30 @@ def pull_information_from_File(file_):
     for first_line in file_:
         global_information.append(first_line.split())
     
-    return global_information
-    
-
-
-def filtering(state_year, information, enter_year):
-    
-
-    index_year = 0
-    if len(state_year[1:]) >= 1:
+    for second_line in global_information:  
+        check_num = check_if_number(second_line[1])
         
-        for i in state_year:
-            if i == enter_year:
-                index_year =  state_year.index(i)
-                print(index_year)
+        if check_num == True:
+            print(second_line[1])
+        else:
+            second_line[0] = second_line[0] + " " + second_line[1]
+            print(second_line[0])
     return 0
 
 
+def filtering(information, enter_year):                        
+         
+    return 0
 
 
 def main():
     file_ = open("population.txt", "r")
     file_information = pull_information_from_File(file_)
 
+    '''
     enter_year = input("Enter Year: ")
-    print(file_information[0])
-    state_year = filtering(file_information[0], file_information[1:], enter_year)
-
-   
+    state_year = filtering(file_information, enter_year)
+    '''
 
 
 main()

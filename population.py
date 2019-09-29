@@ -47,6 +47,7 @@ def searching_in_list(index_, list_):
     
     return tuple_list
 
+
 def filtering(information, enter_year):                        
          
     get_first_line = []
@@ -54,8 +55,9 @@ def filtering(information, enter_year):
         get_first_line.append(first_list)
     
         break
-    
-    if len(get_first_line[0]) >= 2:
+
+    if len(get_first_line[0]) >= 2 and enter_year in get_first_line[0]:
+        
         try: 
             the_index_position = get_first_line[0].index(enter_year)
             information.remove(information[0])
@@ -79,20 +81,28 @@ def filtering(information, enter_year):
         except:
             print("The Year do not exist")
         return min_tuple, max_tuple
+    
+    else:
+        print("Invalid year!")
+        return 0
+
+
+
 
 def main():
     
-    try:
+  #  try:
         enter_file = input("Enter filename: ")
         file_ = open(enter_file, "r")
         file_information = pull_information_from_File(file_)
-
+        
+        
         enter_year = input("Enter Year: ")
         state_year = filtering(file_information, enter_year)
         print("Minimum: ", state_year[0])
         print("Maximum: ", state_year[1])
 
-    except:
-        print("Filename {} not found!".format(enter_file))
+ #   except:
+#        print("Filename {} not found!".format(enter_file))
         
 main()

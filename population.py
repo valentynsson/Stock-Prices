@@ -63,13 +63,25 @@ def filtering(information, enter_year):
             information.remove(information[0])
 
             final_result = searching_in_list(the_index_position, information)
-            print(final_result)
+                        
+            max_tuple = ()
+            min_tuple = ()
+            if final_result[0][1] < final_result[1][1]:
+                min_tuple = (final_result[0][0], final_result[0][1])
+                
+            if final_result[1][1] < final_result[0][1]:
+                min_tuple = (final_result[1][0], final_result[1][1])
+
+            if final_result[0][1] > final_result[1][1]:
+                max_tuple = (final_result[0][0], final_result[0][1])
+            
+            if final_result[1][1] > final_result[0][1]:
+                max_tuple = (final_result[1][0], final_result[1][1])
+            
 
         except:
             print("The Year do not exist")
-        return 0 
-
-
+        return min_tuple, max_tuple
 
 
 def main():
@@ -78,8 +90,6 @@ def main():
 
     enter_year = input("Enter Year: ")
     state_year = filtering(file_information, enter_year)
-
-
+    print(state_year)
 
 main()
-

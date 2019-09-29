@@ -9,7 +9,6 @@ def check_if_number(value):
     
 
 
-
 def pull_information_from_File(file_):
     
     global_information = []
@@ -33,7 +32,22 @@ def pull_information_from_File(file_):
 
 def filtering(information, enter_year):                        
          
-    return 0
+    get_first_line = []
+    for first_list in information:
+        get_first_line.append(first_list)
+    
+        break
+
+    
+    if len(get_first_line[0]) >= 2:
+        try: 
+            the_index_position = get_first_line[0].index(enter_year)
+            information.remove(information[0])
+        
+
+        except:
+            print("The Year do not exist")
+        return 0 
 
 
 
@@ -42,9 +56,7 @@ def main():
     file_ = open("population.txt", "r")
     file_information = pull_information_from_File(file_)
 
-    print(file_information)
     enter_year = input("Enter Year: ")
-
     state_year = filtering(file_information, enter_year)
 
 

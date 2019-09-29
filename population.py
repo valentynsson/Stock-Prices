@@ -67,22 +67,21 @@ def filtering(information, enter_year):
             max_tuple = ()
             min_tuple = ()
             if final_result[0][1] < final_result[1][1]:
-                min_tuple = (final_result[0][0], final_result[0][1])
+                min_tuple = (final_result[0][1], final_result[0][0])
                 
             if final_result[1][1] < final_result[0][1]:
-                min_tuple = (final_result[1][0], final_result[1][1])
+                min_tuple = (final_result[1][1], final_result[1][0])
 
             if final_result[0][1] > final_result[1][1]:
-                max_tuple = (final_result[0][0], final_result[0][1])
+                max_tuple = (final_result[0][1], final_result[0][0])
             
             if final_result[1][1] > final_result[0][1]:
-                max_tuple = (final_result[1][0], final_result[1][1])
+                max_tuple = (final_result[1][1], final_result[1][0])
             
 
         except:
             print("The Year do not exist")
         return min_tuple, max_tuple
-
 
 def main():
     file_ = open("population.txt", "r")
@@ -90,6 +89,7 @@ def main():
 
     enter_year = input("Enter Year: ")
     state_year = filtering(file_information, enter_year)
-    print(state_year)
+    print("Minimum: ", state_year[0])
+    print("Maximum: ", state_year[1])
 
 main()

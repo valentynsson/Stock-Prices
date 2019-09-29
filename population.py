@@ -7,8 +7,6 @@ def check_if_number(value):
     except:
         return False        
     
-
-
 def pull_information_from_File(file_):
     
     global_information = []
@@ -27,7 +25,18 @@ def pull_information_from_File(file_):
             
     return global_information
 
+def searching_in_list(index_, list_):
+    
+    special_year = []
+    for i in list_:
+        special_year.append(int(i[index_]))
+    
+    max_num = max(special_year)
+    min_num = min(special_year)
 
+    print("Min number: {}".format(min_num))
+    print("Max number: {}".format(max_num))
+    return
 
 
 def filtering(information, enter_year):                        
@@ -43,7 +52,8 @@ def filtering(information, enter_year):
         try: 
             the_index_position = get_first_line[0].index(enter_year)
             information.remove(information[0])
-        
+
+            searching_in_list(the_index_position, information)
 
         except:
             print("The Year do not exist")

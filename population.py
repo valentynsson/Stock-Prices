@@ -34,16 +34,19 @@ def searching_in_list(index_, list_):
     max_num = max(special_year)
     min_num = min(special_year)
 
+
+    tuple_list = []
     for check_name in list_:
         if check_name[index_] == str(max_num):
-            print(index_)
-            print("State: " , check_name[0], " Max population: ", max_num )
+            max_list = [check_name[0], max_num]
+            tuple_list.append(max_list)
 
         if check_name[index_] == str(min_num):
-            print("State: " , check_name[0], " Min population: ", min_num )
-
-    return 0
-
+            min_list = [check_name[0], min_num]
+            tuple_list.append(min_list)
+            
+    
+    return tuple_list
 
 def filtering(information, enter_year):                        
          
@@ -59,7 +62,8 @@ def filtering(information, enter_year):
             the_index_position = get_first_line[0].index(enter_year)
             information.remove(information[0])
 
-            searching_in_list(the_index_position, information)
+            final_result = searching_in_list(the_index_position, information)
+            print(final_result)
 
         except:
             print("The Year do not exist")

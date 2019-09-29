@@ -47,7 +47,6 @@ def searching_in_list(index_, list_):
     
     return tuple_list
 
-
 def filtering(information, enter_year):                        
          
     get_first_line = []
@@ -56,9 +55,17 @@ def filtering(information, enter_year):
     
         break
 
-    if len(get_first_line[0]) >= 2 and enter_year in get_first_line[0]:
-        
-        try: 
+    if len(get_first_line[0]) >= 2:
+
+            while True:
+                
+                if enter_year in get_first_line[0]:
+                    break
+                else:
+                    print("Invalid year!")
+                    enter_year = input("Enter year: ")
+
+
             the_index_position = get_first_line[0].index(enter_year)
             information.remove(information[0])
 
@@ -77,17 +84,13 @@ def filtering(information, enter_year):
             
             if final_result[1][1] > final_result[0][1]:
                 max_tuple = (final_result[1][1], final_result[1][0])
-            
-        except:
-            print("The Year do not exist")
-        return min_tuple, max_tuple
+
+            return min_tuple, max_tuple
     
     else:
         print("Invalid year!")
         return 0
-
-
-
+        
 
 def main():
     

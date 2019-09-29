@@ -34,9 +34,15 @@ def searching_in_list(index_, list_):
     max_num = max(special_year)
     min_num = min(special_year)
 
-    print("Min number: {}".format(min_num))
-    print("Max number: {}".format(max_num))
-    return
+    for check_name in list_:
+        if check_name[index_] == str(max_num):
+            print(index_)
+            print("State: " , check_name[0], " Max population: ", max_num )
+
+        if check_name[index_] == str(min_num):
+            print("State: " , check_name[0], " Min population: ", min_num )
+
+    return 0
 
 
 def filtering(information, enter_year):                        
